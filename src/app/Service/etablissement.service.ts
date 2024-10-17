@@ -13,6 +13,19 @@ export class EtablissementService {
   constructor(private http: HttpClient) {}
 
   getEtablissement(): Observable<Etablissement[]> {
-    return this.http.get<Etablissement[]>(`${this.baseUrl}`);
+    return this.http.get<Etablissement[]>(`${this.baseUrl}/all`);
+  }
+
+  getEtablissementById(id: string): Observable<Etablissement> {
+    return this.http.get<Etablissement>(`${this.baseUrl}/${id}`);
+  }
+
+  createdEtablissement(
+    etablissement: Etablissement
+  ): Observable<Etablissement[]> {
+    return this.http.post<Etablissement[]>(
+      `${this.baseUrl}/add`,
+      etablissement
+    );
   }
 }

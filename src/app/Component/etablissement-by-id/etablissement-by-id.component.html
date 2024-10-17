@@ -1,0 +1,13 @@
+<div *ngIf="etablissement; else loading">
+    <h2>Détails de l'Établissement</h2>
+    <p><strong>Nom :</strong> {{ etablissement.nom }}</p>
+    <p><strong>Adresse :</strong> {{ etablissement.classe }}</p>
+    <p><strong>Téléphone :</strong> {{ etablissement.email }}</p>
+    <p><strong>Liste de Classe : </strong>{{etablissement.classe}}</p>
+    <!-- Ajoute d'autres champs si nécessaire -->
+</div>
+
+<ng-template #loading>
+    <p>Chargement des détails de l'établissement...</p>
+</ng-template>
+<button type="button" class="btn btn-primary absolute"> Btn</button>

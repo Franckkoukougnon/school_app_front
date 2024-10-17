@@ -1,6 +1,17 @@
-<p>etablissement works!</p>
 <div class="container">
-    <div class="classe-container">
-        <div class="classe-name"></div>
+    <h2>Liste des Établissements</h2>
+
+    <div *ngIf="etablissements.length > 0; else noEtablissements">
+        <ul class="etablissement-list">
+            <li *ngFor="let etablissement of etablissements">
+                <a [routerLink]="['/etablissement', etablissement.id]">
+                    {{ etablissement.nom }}
+                </a>
+            </li>
+        </ul>
     </div>
+
+    <ng-template #noEtablissements>
+        <p>Aucun établissement trouvé.</p>
+    </ng-template>
 </div>
