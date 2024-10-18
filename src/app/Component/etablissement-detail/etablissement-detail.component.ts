@@ -3,6 +3,8 @@ import { Etablissement } from '../../Model/etablissement/etablissement';
 import { ActivatedRoute } from '@angular/router';
 import { EtablissementService } from '../../Service/etablissement/etablissement.service';
 import { CommonModule } from '@angular/common';
+import { ClasseService } from '../../Service/classe/classe.service';
+import { Classe } from '../../Model/classes/classe';
 
 @Component({
   selector: 'app-etablissement-detail',
@@ -12,11 +14,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './etablissement-detail.component.css',
 })
 export class EtablissementDetailComponent implements OnInit {
+  showEleves(_t15: Classe) {
+    throw new Error('Method not implemented.');
+  }
   etablissement: Etablissement | undefined;
+  classes: Classe[] = [];
 
   constructor(
     private route: ActivatedRoute,
-    private etablissementService: EtablissementService
+    private etablissementService: EtablissementService,
+    private classeService: ClasseService
   ) {}
 
   ngOnInit(): void {
@@ -25,6 +32,7 @@ export class EtablissementDetailComponent implements OnInit {
       this.etablissementService.getEtablissementById(id).subscribe(
         (data) => {
           this.etablissement = data;
+          console.log(this.etablissement);
         },
         (error) => {
           console.error(

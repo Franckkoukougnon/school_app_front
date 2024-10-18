@@ -4,5 +4,5 @@ export interface Etablissement {
   id: number;
   nom: string;
   email: string;
-  classe: Classe[];
+  classes: Classe[];
 }

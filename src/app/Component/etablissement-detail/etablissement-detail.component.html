@@ -1,12 +1,21 @@
-<div *ngIf="etablissement">
-    <h2>Détails de l'Établissement</h2>
-    <p><strong>ID :</strong> {{ etablissement.id }}</p>
-    <p><strong>Nom :</strong> {{ etablissement.nom }}</p>
-    <p><strong>Email :</strong> {{ etablissement.email }}</p>
-    <h3>Classes :</h3>
-    <ul>
-        <li *ngFor="let classe of etablissement.classe">
-            {{ classe.name }} <!-- Assure-toi que `name` est un champ de l'objet `Classe` -->
-        </li>
-    </ul>
+<div *ngIf="etablissement" class="etablissement-container">
+    <h2 class="etablissement-title">Détails de l'Établissement</h2>
+
+    <div class="etablissement-info">
+
+        <p><strong>Nom :</strong> {{ etablissement.nom }}</p>
+        <p><strong>Email :</strong> {{ etablissement.email }}</p>
+    </div>
+
+    <div class="etablissement-classes">
+        <h3>Classes</h3>
+        <ul class="classe-list">
+            <li *ngFor="let classe of etablissement.classes" class="classe-item" (click)="showEleves(classe)">
+                {{ classe.name }}
+            </li>
+        </ul>
+        <p *ngIf="!etablissement.classes || etablissement.classes.length === 0">
+            Pas de classe disponible
+        </p>
+    </div>
 </div>
