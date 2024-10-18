@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../environnement/environnement';
+import { environment } from '../../environnement/environnement';
 import { Observable } from 'rxjs';
-import { Etablissement } from '../Model/etablissement';
+import { Etablissement } from '../../Model/etablissement/etablissement';
 
 @Injectable({
   providedIn: 'root',
@@ -22,10 +22,7 @@ export class EtablissementService {
 
   createdEtablissement(
     etablissement: Etablissement
-  ): Observable<Etablissement[]> {
-    return this.http.post<Etablissement[]>(
-      `${this.baseUrl}/add`,
-      etablissement
-    );
+  ): Observable<Etablissement> {
+    return this.http.post<Etablissement>(`${this.baseUrl}/add`, etablissement);
   }
 }

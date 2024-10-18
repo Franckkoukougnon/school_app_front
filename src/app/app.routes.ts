@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
-import { EtablissementByIdComponent } from './Component/etablissement-by-id/etablissement-by-id.component';
+
 import { EtablissementComponent } from './Component/etablissement/etablissement.component';
+import { EtablissementDetailComponent } from './Component/etablissement-detail/etablissement-detail.component';
 
 export const routes: Routes = [
-  { path: 'etablissement/:id', component: EtablissementByIdComponent },
+  { path: 'etablissement/:id', component: EtablissementDetailComponent },
   { path: '', component: EtablissementComponent },
 ];

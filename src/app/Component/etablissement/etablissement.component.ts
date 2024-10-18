@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EtablissementService } from '../../Service/etablissement.service';
+import { EtablissementService } from '../../Service/etablissement/etablissement.service';
 import { response } from 'express';
-import { Etablissement } from '../../Model/etablissement';
+import { Etablissement } from '../../Model/etablissement/etablissement';
 import { CommonModule, NgFor } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 
@@ -13,8 +13,8 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
   styleUrls: ['./etablissement.component.css'],
 })
 export class EtablissementComponent implements OnInit {
-  // Listes des etablissement
   etablissements: Etablissement[] = [];
+  selectedEtablissement?: Etablissement; // Propriété pour le choix d'un établissement
 
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +29,7 @@ export class EtablissementComponent implements OnInit {
   getEtablissements(): void {
     this.etablissementService.getEtablissement().subscribe(
       (data) => {
-        this.etablissements = data; // Stocker les données récupérées
+        this.etablissements = data;
       },
       (error) => {
         console.error(

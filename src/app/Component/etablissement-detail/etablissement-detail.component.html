@@ -1,0 +1,12 @@
+<div *ngIf="etablissement">
+    <h2>Détails de l'Établissement</h2>
+    <p><strong>ID :</strong> {{ etablissement.id }}</p>
+    <p><strong>Nom :</strong> {{ etablissement.nom }}</p>
+    <p><strong>Email :</strong> {{ etablissement.email }}</p>
+    <h3>Classes :</h3>
+    <ul>
+        <li *ngFor="let classe of etablissement.classe">
+            {{ classe.name }} <!-- Assure-toi que `name` est un champ de l'objet `Classe` -->
+        </li>
+    </ul>
+</div>

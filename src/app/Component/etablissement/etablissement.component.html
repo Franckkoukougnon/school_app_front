@@ -1,7 +1,7 @@
 <div class="container">
     <h2>Liste des Établissements</h2>
 
-    <div *ngIf="etablissements.length > 0; else noEtablissements">
+    <div *ngIf="etablissements">
         <ul class="etablissement-list">
             <li *ngFor="let etablissement of etablissements">
                 <a [routerLink]="['/etablissement', etablissement.id]">
